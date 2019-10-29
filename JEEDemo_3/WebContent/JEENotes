@@ -1,0 +1,189 @@
+JEE :-
+
+	JEE stands for Java Enterprise Edition. It is a technology of Java through which we can create enterprise web applications. It is a technology of Java through which we can computerised the functionality of any organization so that it can be accessed globally.
+
+	JEE has given us three web components to create dynamic web application :-
+	1. Servlet
+	2. Jsp (Java Server Pages)
+	3. EJB (Enterprise Java Beans)
+
+	Limitations of Server :- In case of Web applications ,  there will be client and server architecture where client will send the request and server will give the response accordingly . But Server can only transact the pages which it has , Server cant create dynamic web pages at runtime by interacting with the database . So in case of dynamic request  , Server needs some helper program who can interact with the database and create dynamic web page at runtime.
+
+	Servlet :- Servlet is the helper program of web Server who can create dynamic web pages at runtime by interacting with the database. 
+			OR
+	Servlet is the web component of JEE which is used to create dynamic web pages at runtime.
+
+	Web Container :- Web container is the part of Web Server which manages the complete life cycle of Servlet from its object creation till destruction . It can also be called as Servlet engine.
+
+
+	web.xml (Deployment Descriptor ):- It is an xml file where we will map on which particular request , which servlet will be invoked.
+
+	Servers can be categorized into two types :-
+
+	1. Web Server :- Are the partial implementation of JEE . Supports only Servlets , JSP but not EJB.
+
+	e.g. Apache Tomcat
+	
+	2. Application Server:-  Supports Servlets, JSP as well as EJB.
+
+	e.g. JBoss , Glassfish , Weblogic etc...
+
+   
+	APIs of Servlet :- The classes and interface which we require to work with servlets are in two packages :-
+	
+	1. javax.servlet.*
+	2. javax.servlet.http.*
+
+	How to create Servlet :-There are three ways to create Servlet
+
+	1.   By implementing javax.servlet.Servlet interface.
+
+	Methods of Servlet Interface :-
+
+	a) public void init(ServletConfig config) 
+	b) public void service(ServletRequest request , ServletResponse response) throws ServletException , IOException
+	c) public void destroy()
+	d) public String getServletInfo()
+	e) public ServletConfig getServletConfig()
+
+	2. By extending GenericServlet class.
+			javax.servlet.Servlet
+				   |
+			javax.servlet.GenericServlet (abstract method - Service)
+
+	3. By extending HttpServlet class of javax.servlet.http package..		
+			javax.servlet.Servlet
+				   |
+			javax.servlet.GenericServlet (abstract method - Service)
+					|
+			javax.servlet.http.HttpServlet 
+
+Softwares Required :-
+JDK 
+Eclipse 
+Apache Tomcat 
+
+
+Http Protocol :- Http stands for Hypertext transfer protocol . It is a data communication protocol which is based on TCP/IP and used by Client and Server to communicate and to exchange data to each other.
+
+Features of Http Protocol :-
+1. It is media Independent :- Can exchange any type of Data .
+2. It is connectionless as well as stateless :- Will treat every request as the fresh request , will not be able to recognize the client . Connection will be created as soon as the client sends the request and connection will be destroyed as soon as server has given the response. 
+
+Http Request ,
+Http Response
+
+Difference b/w GET and POST methods of Http Request :-
+				GET 						POST
+1. Data will be travelled in URL 			1. Data will travel in Http request Body			
+2. By default GET will be used.				2. To use POST we have to specify
+3. GET is not secure						3. POST is secure
+4. Limited amount of data is sent.			4. Large amount of data can travelled in POST
+5. Can be bookmarked.						5. Cant be bookmarked.
+
+Life cycle of Servlet :-
+------------------------
+Step 1: On very first request , Web container will load the servlet into the memory.
+Step 2: After loading , Web container will instantiate and then initialize my servlet . At the time of initialization of Servlet , web container will create the object of ServletConfig and uses that object of servletConfig to call init() method.
+
+Step 3 : Now , Web container will create the object of ServletRequest and ServletResponse and uses these objects to call service method. Service method will process the request and will give the response. 
+
+Step 4 : If another request comes for the same servlet , then step no- 3 will be repeated.
+
+Note :- For every request , new objects of ServletRequest and ServletResponse will gets created and service method will be called.
+
+Step 5 : At last Web container can call the destroy method at the time of destruction of object for the servlet.
+
+Note :- init() , service() and destroy() are the life cycle methods of Servlet . They will be called by Web Container thats why they are known as Callback methods.
+
+
+
+
+Creating Servlet by extending HttpServlet :- 
+		1. HttpServlet is an abstract class which has inherited GenericServlet class .
+		2. HttpServlet has given body to the abstract method of GenericServlet class - service()
+
+		public void service(ServletRequest request,ServletResponse response) throws ServletException,IOException {
+			//Here this method of HttpServlet will convert ServletRequest into HttpServletRequest 
+			and ServletResponse into HttpServletResponse and will call anotther version of service method 
+			which takes object of HttpServletRequest and HttpServletResponse as arguments.
+
+			HttpServletRequest req=(HttpServletRequest)request;
+			HttpServletResponse res=(HttpServletResponse)response;
+
+			service(req,res);
+		}
+
+
+		3. What is there inside 
+
+		public void service(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException {
+			//This method will check what type of request is coming either GET , POST , Delete , Options etc.
+			and accordingly will call the doXXX methods.
+
+			if(request.getMethod().equals("GET")){
+			doGet(request,response);
+			}
+			if(request.getMethod().equals("POST")){
+			doPost(request,response);
+			}
+		}
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
