@@ -22,6 +22,7 @@ public class Page2Servlet extends HttpServlet {
 		String fn=request.getParameter("fname");
 		
 		HttpSession session=request.getSession();
+		System.out.println("Session created");
 		session.setAttribute("fn",fn);
 		
 		out.println("<div align='center'><h1>Page 2</h1><hr/>");

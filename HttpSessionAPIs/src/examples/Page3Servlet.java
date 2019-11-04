@@ -3,6 +3,7 @@ package examples;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,6 +30,10 @@ public class Page3Servlet extends HttpServlet {
 		
 		out.println("Welcome : "+s1+" "+s2);
 		out.println("<a href='logOutServlet'>Logout</a>");
+		
+		ServletContext context=getServletContext();
+		int totalLoggedInUsers=(int)context.getAttribute("counter");
+		out.println("Total logged in users : "+totalLoggedInUsers);
 		
 		
 	}
