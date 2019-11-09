@@ -22,6 +22,36 @@
   	<description></description>
   	<servlet-class>com.iris.controllers.AddAddressController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AddCategoryController</servlet-name>
+  	<display-name>AddCategoryController</display-name>
+  	<description></description>
+  	<servlet-class>com.iris.controllers.AddCategoryController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewAllCategories</servlet-name>
+  	<display-name>ViewAllCategories</display-name>
+  	<description></description>
+  	<servlet-class>com.iris.controllers.ViewAllCategories</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddProductForm</servlet-name>
+  	<display-name>AddProductForm</display-name>
+  	<description></description>
+  	<servlet-class>com.iris.controllers.AddProductForm</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddProduct</servlet-name>
+  	<display-name>AddProduct</display-name>
+  	<description></description>
+  	<servlet-class>com.iris.controllers.AddProduct</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewAllProducts</servlet-name>
+  	<display-name>ViewAllProducts</display-name>
+  	<description></description>
+  	<servlet-class>com.iris.controllers.ViewAllProducts</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AddPersonController</servlet-name>
   	<url-pattern>/addPerson</url-pattern>
@@ -33,5 +63,25 @@
   <servlet-mapping>
   	<servlet-name>AddAddressController</servlet-name>
   	<url-pattern>/addAddress</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddCategoryController</servlet-name>
+  	<url-pattern>/addCategory</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewAllCategories</servlet-name>
+  	<url-pattern>/ViewAllCategories</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddProductForm</servlet-name>
+  	<url-pattern>/AddProductForm</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddProduct</servlet-name>
+  	<url-pattern>/AddProduct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewAllProducts</servlet-name>
+  	<url-pattern>/ViewAllProducts</url-pattern>
   </servlet-mapping>
 </web-app>

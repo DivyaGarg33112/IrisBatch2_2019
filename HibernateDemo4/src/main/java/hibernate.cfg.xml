@@ -16,7 +16,10 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
        
+       
        	<mapping class="com.iris.models.Person"/>
+       	<mapping class="com.iris.models.Product"/>
+       	<mapping class="com.iris.models.Category"/>
        	
     </session-factory>
 </hibernate-configuration>
