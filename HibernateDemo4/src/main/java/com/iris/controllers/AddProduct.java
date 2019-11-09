@@ -3,6 +3,7 @@ package com.iris.controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +40,10 @@ public class AddProduct extends HttpServlet {
 		
 		boolean b=daoObj.addProduct(p);
 		if(b){
-			out.println("Product Added Succesfully..");
+			request.setAttribute("msg", "Product Added Succesfully..");
+			request.setAttribute("products", new ProductDaoImpl().getAllProducts());
+			RequestDispatcher rd=request.getRequestDispatcher("ViewProducts.jsp");
+			rd.forward(request, response);
 		}
 		
 		
