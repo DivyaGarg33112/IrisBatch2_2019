@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    
+    <bean id="obj1" class="com.iris.Laptop">
+    	<constructor-arg value="4"/>
+    	<constructor-arg value="HP"/>
+    </bean>  
+    
+    <bean id="obj2" class="com.iris.Laptop">
+    </bean>     
+    
+    <bean id="obj3" class="com.iris.Laptop">
+    	<property name="ram" value="8"/>
+    	<property name="company" value="DELL"/>
+    </bean>
+    
+    <bean id="eObj1" class="com.iris.Engine">
+    	<constructor-arg value="1200"/>
+    	<constructor-arg value="Tata"/>
+    </bean>
+    
+    <bean id="cObj1" class="com.iris.Car">
+    	<property name="carNumber" value="101"/>
+    	<property name="carModel" value="XYZ Model"/>
+    	<property name="engineObj" ref="eObj1"/>
+    </bean>
+                
+</beans>
+
+
+

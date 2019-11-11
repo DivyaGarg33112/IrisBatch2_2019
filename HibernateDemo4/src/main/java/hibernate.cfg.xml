@@ -14,12 +14,16 @@
         <!-- Echo the SQL to stdout -->
         <property name="show_sql">true</property>
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create</property>
        
        
        	<mapping class="com.iris.models.Person"/>
        	<mapping class="com.iris.models.Product"/>
        	<mapping class="com.iris.models.Category"/>
-       	
+       	<mapping class="com.iris.models.Vehicle"/>
+       	<mapping class="com.iris.models.User"/>
+       	<mapping class="com.iris.models.Student"/>
+       	<mapping class="com.iris.models.Course"/>
+       	<mapping class="com.iris.models.UserDetails"/>
     </session-factory>
 </hibernate-configuration>
