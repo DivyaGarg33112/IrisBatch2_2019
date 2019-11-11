@@ -27,8 +27,83 @@
     	<property name="carModel" value="XYZ Model"/>
     	<property name="engineObj" ref="eObj1"/>
     </bean>
-                
+    
+    <bean id="c1" class="com.iris.Course">
+    	<constructor-arg value="1"/>
+    	<constructor-arg value="Java"/>
+    	<constructor-arg value="45000"/>
+    </bean>
+    
+    <bean id="c2" class="com.iris.Course">
+    	<constructor-arg value="2"/>
+    	<constructor-arg value="Angular"/>
+    	<constructor-arg value="25000"/>
+    </bean>
+    
+    <bean id="c3" class="com.iris.Course">
+    	<constructor-arg value="3"/>
+    	<constructor-arg value="PLSQL"/>
+    	<constructor-arg value="15000"/>
+    </bean>
+    
+    <bean id="addr" class="com.iris.Address">
+    	<property name="addressLine1" value="Plot no-19 , PKR"/>
+    	<property name="addressLine2" value="Noida"/>
+    </bean>
+    
+    <bean id="studObj" class="com.iris.Student" scope="prototype">
+    	<constructor-arg ref="addr" index="2"/>
+    	<constructor-arg value="101" index="0"/>
+    	<constructor-arg value="Gourav" index="1"/>
+    	<property name="courses">
+    		<list>
+    			<!-- 
+    			<value>Angular</value>
+    			<value>Java</value> -->
+    			<ref bean="c1"/>
+    			<ref bean="c2"/>
+    			<ref bean="c3"/>
+    		</list>
+    	</property>
+    </bean>
+    
+	<bean id="pointObj1" class="com.iris.autowiring.Point">
+		<constructor-arg value="0"/>
+		<constructor-arg value="10"/>
+	</bean>   
+	
+		<bean id="pointObj2" class="com.iris.autowiring.Point">
+		<constructor-arg value="10"/>
+		<constructor-arg value="10"/>
+	</bean>   
+	
+     
+    
+    
+	<!-- Autowire by name means spring container will search for those beans 
+	whose id are same as the name of the reference variable in the class. 
+	
+	byType will search for the bean in the xml having same type as teh type of 
+	variable in the Circle class/-->
+	<bean id="circleObj" class="com.iris.autowiring.Circle" autowire="constructor">
+		 
+	</bean>
+	
+	            
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
