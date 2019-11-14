@@ -9,8 +9,7 @@
 		
 		<hr/>
 		
-		<a href="getSignInForm">Log In</a><br/>
-		<a href="getSignUpForm">Sign Up</a><br/>
+		<h1>Welcome ${uObj.userName}</h1>
 		
 	</body>
 </html>

@@ -1,7 +1,14 @@
 package com.portal.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="User_14Nov")
 public class User {
 	
+	@Id
 	private Integer userId;
 	private String userName;
 	private String password;
