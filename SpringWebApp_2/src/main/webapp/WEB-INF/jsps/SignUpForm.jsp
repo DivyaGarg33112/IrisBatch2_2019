@@ -1,4 +1,5 @@
 <%@taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 	<head>
 		<title>Spring Web MVC</title>
@@ -11,8 +12,11 @@
 		<hr/>
 		
 		<div align="center">
-			<h1>Registration Form</h1>
-			<f:form action="registerUser" method="post" modelAttribute="userObj">
+			<h1>${formLabel}</h1>
+			
+			
+			
+			<f:form action="${path}/registerUser" method="post" modelAttribute="userObj">
 			<table>
 				<tr>
 					<td>User Id : </td>
@@ -22,10 +26,15 @@
 					<td>User Name : </td>
 					<td><f:input path="userName"/></td>
 				</tr>
+				
+				<c:if test="${userObj.password eq null}">
 				<tr>
 					<td>Password : </td>
 					<td><f:password path="password"/></td>
 				</tr>
+				</c:if>
+				
+				
 				<tr>
 					<td>Gender : </td>
 					<td><f:input path="gender"/></td>
@@ -33,7 +42,7 @@
 				<tr>
 					<td></td>
 					<td>
-						<input type="submit" value="Sign Up"/>
+						<input type="submit" value="${btnLabel}"/>
 					</td>
 				</tr>
 			</table>

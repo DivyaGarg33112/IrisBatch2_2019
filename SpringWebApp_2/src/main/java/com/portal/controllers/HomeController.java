@@ -31,12 +31,15 @@ public class HomeController {
 	@RequestMapping(value="/getSignUpForm",method=RequestMethod.GET)
 	public String displayRegisterForm(ModelMap map){
 		map.addAttribute("userObj",new User());
+		map.addAttribute("btnLabel","Sign Up");
+		map.addAttribute("formLabel", "SignUp Form");
 		return "SignUpForm";
 	}
 	
 	@RequestMapping(value="/registerUser",method=RequestMethod.POST)
 	public String registerUser(@ModelAttribute User userObj,ModelMap map){
 		//Will write the code to insert the object into the database
+		userObj.setRole("User");
 		userDao.registerUser(userObj);
 		map.addAttribute("msg","User has been registered succesfully. Now u can Login");
 		return "SignInForm";
@@ -77,8 +80,15 @@ public class HomeController {
 			return "SignInForm";
 		}
 		else {
+			String role=uObj.getRole();
 			session.setAttribute("uObj",uObj);
-			return "Success";
+			
+			if(role.equals("Admin")){
+				return "AdminSuccess";
+			}
+			else {
+				return "UserSucces";
+			}
 		}
 	}
 }
