@@ -1,22 +1,28 @@
 package com.portal.controllers;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.portal.daos.UserDao;
 import com.portal.models.User;
+import com.portal.validators.GenderValidator;
 
 @Controller
 public class HomeController {
 
+	@Autowired
+	GenderValidator myValidator;
+	
 	@Autowired
 	UserDao userDao;
 	
@@ -37,12 +43,28 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/registerUser",method=RequestMethod.POST)
-	public String registerUser(@ModelAttribute User userObj,ModelMap map){
+	public ModelAndView registerUser(@Valid @ModelAttribute("userObj")  User userObj,
+			BindingResult result){
 		//Will write the code to insert the object into the database
+		
+		myValidator.validate(userObj, result);
+		
+		if(result.hasErrors()){
+			System.out.println("I m here..");
+			ModelAndView mv=new ModelAndView("SignUpForm");
+			//mv.addObject("userObj",new User());
+			mv.addObject("btnLabel","Sign Up");
+			mv.addObject("formLabel", "SignUp Form");
+			return mv;
+		}
+		else {
 		userObj.setRole("User");
 		userDao.registerUser(userObj);
-		map.addAttribute("msg","User has been registered succesfully. Now u can Login");
-		return "SignInForm";
+		
+		ModelAndView mv=new ModelAndView("SignInForm");
+		mv.addObject("msg","User has been registered succesfully. Now u can Login");
+		return mv;
+		}
 	}
 	
 	

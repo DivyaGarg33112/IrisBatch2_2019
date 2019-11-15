@@ -1,19 +1,42 @@
 package com.portal.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="User_14Nov")
 public class User {
 	
 	@Id
+	@NotNull(message="User Id is required")
+	@Min(value=101)
 	private Integer userId;
+	
+	@NotEmpty(message="User Name is required.")
+	@Size(min=3,message="Username should be minium 3 letters")
 	private String userName;
+	
+	@NotEmpty
+	@Size(min=7,max=12,message="Password should be between 7 to 12 characters")
+	@Column(name="UserPass")
 	private String password;
+	
+	@NotEmpty
 	private String gender;
+	
+	@NotEmpty
 	private String role;
+	
+	//@Past
+	//@Future
 	
 	public Integer getUserId() {
 		return userId;
