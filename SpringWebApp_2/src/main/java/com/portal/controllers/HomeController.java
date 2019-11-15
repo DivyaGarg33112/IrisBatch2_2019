@@ -54,7 +54,7 @@ public class HomeController {
 			ModelAndView mv=new ModelAndView("SignUpForm");
 			//mv.addObject("userObj",new User());
 			mv.addObject("btnLabel","Sign Up");
-			mv.addObject("formLabel", "SignUp Form");
+			mv.addObject("formLabel", "SignUp Form");	
 			return mv;
 		}
 		else {

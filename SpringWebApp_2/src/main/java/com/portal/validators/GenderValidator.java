@@ -27,7 +27,7 @@ public class GenderValidator implements Validator{
 			System.out.println("Correct");
 		}
 		else {
-			errors.reject("gender","Only Male and Female allowed for Gender");
+			errors.rejectValue("gender","gender.code","Only Male and Female allowed for Gender");
 		}
 		
 		
