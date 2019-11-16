@@ -1,5 +1,7 @@
 package com.portal.controllers;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,9 +28,12 @@ public class HomeController {
 	
 	@Autowired
 	UserDao userDao;
+
 	
 	@RequestMapping(value="/",method=RequestMethod.GET)
 	public String sayHello(ModelMap map){
+		
+		
 		//can perform business logic here
 		map.addAttribute("myData","Welcome to Spring Web MVC!!!");
 		
@@ -36,6 +42,10 @@ public class HomeController {
 	
 	@RequestMapping(value="/getSignUpForm",method=RequestMethod.GET)
 	public String displayRegisterForm(ModelMap map){
+		
+		/*int[] arr=new int[2];
+		arr[11]=20;
+		*/
 		map.addAttribute("userObj",new User());
 		map.addAttribute("btnLabel","Sign Up");
 		map.addAttribute("formLabel", "SignUp Form");
@@ -113,7 +123,19 @@ public class HomeController {
 			}
 		}
 	}
+	
+	@ExceptionHandler({ArithmeticException.class,IOException.class,
+		ArrayIndexOutOfBoundsException.class})
+	public ModelAndView myExceptionHandler(){
+		System.out.println("I m exception Handler method");
+		ModelAndView mv=new ModelAndView("Error");
+		mv.addObject("errorMsg","Some Issue occured try later..");
+		return mv;
+	}
 }
+
+
+
 
 
 

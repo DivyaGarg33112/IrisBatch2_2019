@@ -12,27 +12,31 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name="User_14Nov")
+@Table(name="User_15Nov")
 public class User {
 	
 	@Id
 	@NotNull(message="User Id is required")
 	@Min(value=101)
+	@Column(name="User_Id")
 	private Integer userId;
 	
 	@NotEmpty(message="User Name is required.")
 	@Size(min=3,message="Username should be minium 3 letters")
+	@Column(name="User_Name")
 	private String userName;
 	
 	@NotEmpty
 	@Size(min=7,max=12,message="Password should be between 7 to 12 characters")
-	@Column(name="UserPass")
+	@Column(name="User_Pass")
 	private String password;
 	
 	@NotEmpty
+	@Column(name="User_Gender")
 	private String gender;
 	
 	@NotEmpty
+	@Column(name="User_Role")
 	private String role;
 	
 	//@Past

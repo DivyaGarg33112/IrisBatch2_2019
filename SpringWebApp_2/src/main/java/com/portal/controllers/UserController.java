@@ -20,6 +20,7 @@ public class UserController {
 	
 	@RequestMapping(value="/viewAllUsers",method=RequestMethod.GET)
 	public ModelAndView getAllUsers(){
+	
 		
 		List<User> users=userDao.getAllUsers();
 		
