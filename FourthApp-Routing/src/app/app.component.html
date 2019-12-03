@@ -1,0 +1,29 @@
+<!-- <h1 align='center'>Routing and Navigation</h1>
+
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <ul class="navbar-nav">
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" routerLink="/departments">Departments</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" routerLink="/employees">Employees</a>
+    </li>
+    
+  </ul>
+</nav>-->
+
+
+<!--<router-outlet> </router-outlet> -->
+
+<!--Parent Data in Child-->
+<h1>Component Interaction Demo </h1><br/>
+Enter your name : <input type="text" [(ngModel)]="name"/><br/>
+Message : {{message}}
+
+<!--Here I am binding the value of name property of parent component in child's
+propety having name parentKaData-->
+<app-test (childEvent)="message=$event" [parentsData]="name"></app-test>
+<!--
+  [parentsData]="name" is used to share the parent's data to the child's component.
+  Here parentsData is a property in child component..
+-->
