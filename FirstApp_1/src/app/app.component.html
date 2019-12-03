@@ -1,0 +1,137 @@
+<!-- <h1>{{title}}</h1>
+<h2>I m Heading 2</h2> -->
+
+<!-- <button (click)="changeVal(true)">Show Div</button>
+<button (click)="changeVal(false)">Hide Div</button> -->
+
+<!-- <button (click)="isValid=true">Show Div</button>
+<button (click)="isValid=false">Hide Div</button>
+
+<div *ngIf="isValid">
+    I m Valid Div
+</div> -->
+
+<!-- <div *ngIf="projectsList.length==0">
+    No Projects Exist...
+</div>
+<div *ngIf="projectsList.length>0">
+    Projects List...
+</div> -->
+
+<!--
+<div *ngIf="projectsList.length==0;else myelsBlock">
+    No Projects Exist...
+</div>
+<ng-template #myelsBlock>
+    Project Exist..
+</ng-template>-->
+
+<!-- <div *ngIf="projectsList.length==0;then myIfBlock;else myelsBlock"></div>
+<ng-template #myIfBlock>
+    Project Doesnt Exist..
+</ng-template>
+<ng-template #myelsBlock>
+    Project List..
+    <table border="1">
+        <tr>
+            <th>Serial No.</th>
+            <th>Project Id</th>
+            <th>Project Name</th>
+            <th>Even Row</th>
+            <th>Odd Row</th>
+        </tr>
+        <tr *ngFor="let p of projectsList;index as i;let ev=even;let od=odd">
+            <td>{{i+1}}</td>
+            <td>{{p.projectId}}</td>
+            <td>{{p.projectName}}</td> 
+            <td>{{ev}}</td>
+            <td>{{od}}</td>
+        </tr>
+    </table>
+    <button (click)="addNewRow('p00','Test Project')">Add New Row</button>
+    <button (click)="removeRow('P101')">Remove  Row</button>
+</ng-template> -->
+
+
+<!-- <h2>Using ngSwitch {{choose}}</h2>
+
+<ul [ngSwitch]="person">
+        <li *ngSwitchCase="'Mohan'">Hello Mohan</li>
+        <li *ngSwitchCase="'Sohan'">Hello Sohan</li>
+        <li *ngSwitchCase="'Vijay'">Hello Vijay</li>
+        <li *ngSwitchDefault>Bye Bye</li>
+      </ul> -->
+
+<!-- <h2>Grouping in ngFor</h2>
+<ul *ngFor="let group of countryDetails">
+    <li>{{group.country}}</li>
+    <ul *ngFor="let person of group.people">
+        {{person.name}}
+    </ul>
+</ul> -->
+
+<!-- <h2>ngStyle- Attribute directive</h2>
+<ul *ngFor="let group of countryDetails">
+    <li>{{group.country}}</li>
+    <ul *ngFor="let person of group.people"
+     [ngStyle]="{'background-color':group.country=='India'?'Orange':'Green',
+     'color':group.country=='India'?'green':'pink'}">
+        {{person.name}}
+    </ul>
+</ul>  -->
+
+<!-- <h2>ngClass - Attribute Directive</h2>  -->
+<!-- <p [ngClass]="['class1']">
+        Using ngClass with string example
+</p> 
+
+<br/>
+
+ <p [ngClass]="['class1','class2','class3']">
+        Using ngClass with string example
+</p>  -->
+
+<br/>
+
+<!-- <ul *ngFor="let group of countryDetails">
+        <li>{{group.country}}</li>
+        <ul *ngFor="let person of group.people" 
+        [ngClass]="group.country=='India'?'class1':'class3'">
+            {{person.name}}
+        </ul>
+    </ul>  -->
+
+<!-- <h2>Interpolation - 1 way data binding from component to view </h2>
+Welcome : {{empFirstName}} {{empLastName}}<br/>
+Num 1 : {{a}} <br/>
+Num 2: {{b}} <br/>
+Sum : {{a+b}}
+ 
+<img src="{{imagePath}}" style="height:100px;width:200px"/>  -->
+
+<!-- <h2>Property Binding</h2>
+<span [innerHTML]="employerName"></span>
+<img [src]="imagePath" style="height:100px;width:100px"/>
+<input type="text" [value]="empFirstName"/>
+<input type="text" value="{{empLastName}}"/>  -->
+
+<!-- 
+<h2>Event Binding</h2>
+<button (click)="changeName('Aakriti')">Click Me to display ur name : </button><br/>
+Student Name : {{studentName}} -->
+
+<h1>Two way Data Binding</h1>
+<input type="text" [(ngModel)]="userName"><br/>
+Welcome : {{userName}} 
+
+<!-- <input type="text" [value]="userName"  (input)="changeUserName($event)"><br/>
+Welcome : {{userName}} -->
+
+
+
+
+
+
+
+
+
